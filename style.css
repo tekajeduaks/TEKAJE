@@ -93,17 +93,370 @@ header {
 ========================= */
 
 .hero {
-    min-height: 100vh;
-    position: relative;
-    overflow: hidden;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    background:
-        radial-gradient(circle at 15% 20%, rgba(117, 92, 218, 0.20), transparent 30%),
-        radial-gradient(circle at 85% 75%, rgba(61, 125, 221, 0.18), transparent 30%),
-        #f2f4f8;
+min-height: 100vh;
+position: relative;
+overflow: hidden;
+
+display: flex;
+justify-content: center;
+align-items: center;
+text-align: center;
+
+background:
+    radial-gradient(
+        circle at 15% 20%,
+        rgba(117, 92, 218, 0.16),
+        transparent 30%
+    ),
+    radial-gradient(
+        circle at 85% 75%,
+        rgba(61, 125, 221, 0.14),
+        transparent 30%
+    ),
+    #f2f4f8;
+
+}
+
+/* =========================
+TEKS UTAMA
+========================= */
+
+.hero h1 {
+position: relative;
+
+font-size: clamp(65px, 12vw, 150px);
+
+line-height: 1;
+font-weight: 800;
+
+letter-spacing: -4px;
+
+/* Warna normal saat pertama masuk */
+color: #8cafed;
+
+/* TIDAK ADA GLOW DI AWAL */
+filter: none;
+
+/*
+   Animasi dimulai setelah beberapa detik.
+   Total 8 detik per siklus.
+*/
+animation:
+    textGlow 8s ease-in-out infinite;
+
+}
+
+/* =========================
+GLOW DI BELAKANG TEKS
+========================= */
+
+.hero h1::before {
+content: "XII TKJ 2";
+
+position: absolute;
+
+inset: 0;
+
+color: #759fed;
+
+/*
+   Awalnya benar-benar tidak terlihat
+*/
+opacity: 0;
+
+filter: blur(18px);
+
+z-index: -1;
+
+animation:
+    textGlowBehind 8s ease-in-out infinite;
+
+}
+
+/* =========================
+GARIS CAHAYA YANG MENYAPU
+TEKS
+========================= */
+
+.hero h1::after {
+content: "";
+
+position: absolute;
+
+top: 0;
+left: -30%;
+
+width: 20%;
+height: 100%;
+
+background:
+    linear-gradient(
+        90deg,
+        transparent,
+        rgba(255, 255, 255, 0.9),
+        transparent
+    );
+
+transform: skewX(-20deg);
+
+filter: blur(8px);
+
+opacity: 0;
+
+/*
+   Shine muncul setelah beberapa detik
+*/
+animation:
+    textShine 8s ease-in-out infinite;
+
+}
+
+/* =========================
+ANIMASI GLOW TEKS
+========================= */
+
+@keyframes textGlow {
+
+/* =====================
+   AWAL
+   TEKS NORMAL
+===================== */
+
+0% {
+    color: #407be7;
+
+    filter: none;
+
+    transform: scale(1);
+}
+
+
+/* =====================
+   MASIH NORMAL
+   BEBERAPA DETIK
+===================== */
+
+20% {
+    color: #759fed;
+
+    filter: none;
+
+    transform: scale(1);
+}
+
+
+/* =====================
+   MULAI MENYALA
+===================== */
+
+30% {
+    color: #759fed;
+
+    filter:
+        drop-shadow(
+            0 0 5px
+            rgba(218, 229, 249, 0.34901960784313724)
+        );
+
+    transform: scale(1.01);
+}
+
+
+/* =====================
+   GLOW PALING KUAT
+===================== */
+
+42% {
+    color: #84aaf2;
+
+    filter:
+        drop-shadow(
+            0 0 6px
+            rgba(219, 227, 245, 0.8)
+        )
+        drop-shadow(
+            0 0 20px
+            rgba(195, 197, 233, 0.6509803921568628)
+        )
+        drop-shadow(
+            0 0 45px
+            rgba(143, 146, 206, 0.34901960784313724)
+        );
+
+    transform: scale(1.025);
+}
+
+
+/* =====================
+   GLOW MULAI REDUP
+===================== */
+
+55% {
+    color: #5488e9;
+
+    filter:
+        drop-shadow(
+            0 0 8px
+            rgba(142, 162, 200, 0.45098039215686275)
+        );
+
+    transform: scale(1.01);
+}
+
+
+/* =====================
+   KEMBALI NORMAL
+===================== */
+
+70% {
+    color: #6694e7;
+
+    filter: none;
+
+    transform: scale(1);
+}
+
+
+/* =====================
+   TUNGGU SEBELUM
+   ANIMASI BERIKUTNYA
+===================== */
+
+100% {
+    color: #759fed;
+
+    filter: none;
+
+    transform: scale(1);
+}
+
+}
+
+/* =========================
+GLOW BELAKANG TEKS
+========================= */
+
+@keyframes textGlowBehind {
+
+/* Awal tidak ada */
+
+0% {
+    opacity: 0;
+    transform: scale(0.95);
+}
+
+
+/* Masih tidak ada */
+
+20% {
+    opacity: 0;
+}
+
+
+/* Mulai muncul */
+
+30% {
+    opacity: 0.2;
+}
+
+
+/* Puncak glow */
+
+42% {
+    opacity: 0.65;
+    transform: scale(1.05);
+}
+
+
+/* Mulai hilang */
+
+55% {
+    opacity: 0.2;
+}
+
+
+/* Hilang */
+
+70% {
+    opacity: 0;
+    transform: scale(0.98);
+}
+
+
+100% {
+    opacity: 0;
+}
+
+}
+
+/* =========================
+SHINE BERGERAK
+========================= */
+
+@keyframes textShine {
+
+/* Awalnya tidak ada */
+
+0% {
+    left: -30%;
+    opacity: 0;
+}
+
+
+/* Tunggu */
+
+25% {
+    left: -30%;
+    opacity: 0;
+}
+
+
+/* Mulai muncul */
+
+34% {
+    opacity: 0.8;
+}
+
+
+/* Menyapu teks */
+
+48% {
+    left: 120%;
+    opacity: 0;
+}
+
+
+/* Hilang */
+
+70% {
+    left: 120%;
+    opacity: 0;
+}
+
+
+100% {
+    left: 120%;
+    opacity: 0;
+}
+
+}
+
+/* =========================
+MOBILE
+========================= */
+
+@media (max-width: 600px) {
+
+.hero h1 {
+    font-size: clamp(
+        50px,
+        17vw,
+        90px
+    );
+
+    letter-spacing: -2px;
+}
+
 }
 
 .hero-content {
@@ -120,16 +473,6 @@ header {
     font-weight: 700;
     letter-spacing: 4px;
     margin-bottom: 15px;
-}
-
-.hero h1 {
-    font-size: clamp(65px, 12vw, 150px);
-    line-height: 1;
-    font-weight: 800;
-    background: linear-gradient(90deg, #4f86d9, #3d7ddd);
-    -webkit-background-clip: text;
-    background-clip: text;
-    color: transparent;
 }
 
 .hero p:not(.small-title) {
