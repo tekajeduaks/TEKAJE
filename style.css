@@ -1,0 +1,705 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: "Poppins", sans-serif;
+    background: #f2f4f8;
+    color: #182238;
+}
+
+
+/* =========================
+   NAVBAR
+========================= */
+
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    background: rgba(255, 255, 255, 0.90);
+    backdrop-filter: blur(15px);
+    border-bottom: 1px solid rgba(50, 70, 100, 0.08);
+}
+
+.navbar {
+    max-width: 1250px;
+    margin: auto;
+    height: 75px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 28px;
+}
+
+.logo {
+    font-size: 23px;
+    font-weight: 800;
+    color: #172033;
+    white-space: nowrap;
+}
+
+.logo span {
+    color: #4f86d9;
+}
+
+.nav-menu {
+    display: flex;
+    list-style: none;
+    gap: 34px;
+    margin-left: auto;
+}
+
+.nav-menu a {
+    position: relative;
+    text-decoration: none;
+    color: #172033;
+    font-size: 14px;
+    font-weight: 600;
+    transition: 0.3s;
+}
+
+.nav-menu a::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -7px;
+    width: 0;
+    height: 2px;
+    border-radius: 10px;
+    background: linear-gradient(90deg, #4f86d9, #3d7ddd);
+    transition: 0.3s;
+}
+
+.nav-menu a:hover {
+    color: #4f86d9;
+}
+
+.nav-menu a:hover::after {
+    width: 100%;
+}
+
+
+/* =========================
+   HERO
+========================= */
+
+.hero {
+    min-height: 100vh;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    background:
+        radial-gradient(circle at 15% 20%, rgba(117, 92, 218, 0.20), transparent 30%),
+        radial-gradient(circle at 85% 75%, rgba(61, 125, 221, 0.18), transparent 30%),
+        #f2f4f8;
+}
+
+.hero-content {
+    max-width: 750px;
+    padding: 20px;
+    position: relative;
+    z-index: 2;
+    animation: fadeUp 1s ease;
+}
+
+.small-title {
+    color: #4f86d9;
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: 4px;
+    margin-bottom: 15px;
+}
+
+.hero h1 {
+    font-size: clamp(65px, 12vw, 150px);
+    line-height: 1;
+    font-weight: 800;
+    background: linear-gradient(90deg, #4f86d9, #3d7ddd);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+
+.hero p:not(.small-title) {
+    margin: 25px auto;
+    max-width: 600px;
+    color: #667085;
+    line-height: 1.8;
+}
+
+.btn {
+    display: inline-block;
+    padding: 13px 28px;
+    background: linear-gradient(135deg, #4f86d9, #3d7ddd);
+    color: white;
+    text-decoration: none;
+    border-radius: 50px;
+    font-weight: 600;
+    transition: 0.3s;
+    box-shadow: 0 12px 30px rgba(69, 91, 190, 0.25);
+}
+
+.btn:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 18px 35px rgba(69, 91, 190, 0.32);
+}
+
+.hero-decoration {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(2px);
+    animation: floating 5s ease-in-out infinite;
+}
+
+.circle-one {
+    width: 250px;
+    height: 250px;
+    background: #7fa8e8;
+    opacity: 0.18;
+    top: 15%;
+    left: -80px;
+}
+
+.circle-two {
+    width: 300px;
+    height: 300px;
+    background: #5d91df;
+    opacity: 0.14;
+    right: -100px;
+    bottom: 5%;
+    animation-delay: 1s;
+}
+
+
+/* =========================
+   SECTION
+========================= */
+
+.section {
+    max-width: 1150px;
+    margin: auto;
+    padding: 110px 25px;
+}
+
+.section-title {
+    margin-bottom: 50px;
+}
+
+.section-title span {
+    color: #4f86d9;
+    font-size: 14px;
+    font-weight: 800;
+}
+
+.section-title h2 {
+    font-size: 38px;
+    margin: 5px 0;
+}
+
+.section-title p {
+    color: #778196;
+}
+
+
+/* =========================
+   STRUKTUR
+========================= */
+
+.structure-section {
+    max-width: 1200px;
+}
+
+.structure {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.structure-level {
+    display: flex;
+    justify-content: center;
+    gap: 25px;
+    width: 100%;
+}
+
+.person {
+    background: rgba(255, 255, 255, 0.95);
+    width: 220px;
+    padding: 25px 15px;
+    text-align: center;
+    border-radius: 20px;
+    border: 1px solid #e0e5ed;
+    transition: 0.3s;
+    box-shadow: 0 8px 25px rgba(39, 54, 84, 0.05);
+}
+
+.person:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 15px 35px rgba(39, 54, 84, 0.11);
+}
+
+.person.leader {
+    border: 2px solid #4f86d9;
+}
+
+.avatar {
+    width: 60px;
+    height: 60px;
+    margin: auto auto 12px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #eeebff, #e8f0ff);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 27px;
+}
+
+.person h3 {
+    font-size: 15px;
+    margin-bottom: 5px;
+}
+
+.person span {
+    font-size: 12px;
+    color: #4f86d9;
+    font-weight: 600;
+}
+
+.connector {
+    width: 2px;
+    height: 40px;
+    background: linear-gradient(#4f86d9, #8fa6cc);
+}
+
+.three .person {
+    width: 200px;
+}
+
+
+/* =========================
+   JADWAL
+========================= */
+
+.schedule {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 18px;
+}
+
+.day-card {
+    background: #ffffff;
+    border-radius: 20px;
+    padding: 25px 18px;
+    border: 1px solid #e0e5ed;
+    transition: 0.3s;
+    box-shadow: 0 8px 25px rgba(39, 54, 84, 0.04);
+}
+
+.day-card:hover {
+    transform: translateY(-7px);
+    box-shadow: 0 15px 35px rgba(39, 54, 84, 0.10);
+}
+
+.day-card h3 {
+    margin-bottom: 18px;
+    color: #4f86d9;
+}
+
+.day-card p {
+    font-size: 13px;
+    padding: 10px 0;
+    border-bottom: 1px solid #edf0f5;
+    color: #606b7c;
+}
+
+
+/* =========================
+   PIKET
+========================= */
+
+.piket-section {
+    max-width: 1000px;
+}
+
+.piket-list {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.piket-item {
+    background: #ffffff;
+    border-radius: 18px;
+    padding: 18px 25px;
+    display: flex;
+    align-items: center;
+    gap: 30px;
+    border: 1px solid #e0e5ed;
+    transition: 0.3s;
+    box-shadow: 0 7px 22px rgba(39, 54, 84, 0.04);
+}
+
+.piket-item:hover {
+    transform: translateX(8px);
+    box-shadow: 0 10px 25px rgba(39, 54, 84, 0.09);
+}
+
+.day {
+    min-width: 100px;
+    font-weight: 800;
+    color: #4f86d9;
+}
+
+.students {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.students span {
+    padding: 7px 13px;
+    background: #eef1fb;
+    color: #496ca8;
+    border-radius: 50px;
+    font-size: 12px;
+    font-weight: 600;
+}
+
+
+/* =========================
+   FOOTER
+========================= */
+
+footer {
+    text-align: center;
+    padding: 60px 20px;
+    background: linear-gradient(135deg, #171b2b, #20294a);
+    color: white;
+}
+
+footer h2 {
+    font-size: 28px;
+}
+
+footer p {
+    color: #b9c1d2;
+    margin: 10px 0 20px;
+}
+
+.instagram-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 9px;
+    padding: 10px 18px;
+    margin-bottom: 25px;
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    border-radius: 50px;
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 13px;
+    font-weight: 600;
+    background: rgba(255, 255, 255, 0.08);
+    transition: 0.3s;
+}
+
+.instagram-link:hover {
+    transform: translateY(-3px);
+    background: rgba(105, 86, 216, 0.28);
+    border-color: rgba(140, 125, 235, 0.5);
+}
+
+.instagram-icon {
+    font-size: 20px;
+    line-height: 1;
+}
+
+.footer-line {
+    width: 60px;
+    height: 3px;
+    background: linear-gradient(90deg, #4f86d9, #5d91df);
+    margin: auto auto 20px;
+    border-radius: 10px;
+}
+
+footer small {
+    color: #808aa0;
+}
+
+
+
+/* =========================
+   HERO BACKGROUND ANIMATION
+   Biru soft, tanpa bulatan biasa
+========================= */
+
+.hero::before,
+.hero::after {
+    content: "";
+    position: absolute;
+    pointer-events: none;
+}
+
+.hero::before {
+    width: 520px;
+    height: 520px;
+    top: -180px;
+    left: -120px;
+    background: radial-gradient(
+        circle,
+        rgba(79, 134, 217, 0.20) 0%,
+        rgba(127, 168, 232, 0.10) 38%,
+        transparent 70%
+    );
+    filter: blur(8px);
+    animation: blueAurora 9s ease-in-out infinite alternate;
+}
+
+.hero::after {
+    width: 620px;
+    height: 620px;
+    right: -190px;
+    bottom: -270px;
+    background: radial-gradient(
+        circle,
+        rgba(61, 125, 221, 0.17) 0%,
+        rgba(143, 181, 235, 0.08) 42%,
+        transparent 72%
+    );
+    filter: blur(10px);
+    animation: blueAuroraReverse 11s ease-in-out infinite alternate;
+}
+
+/* Dua dekorasi lama tetap dipakai, tetapi dibuat seperti
+   blob transparan yang bergerak, bukan lingkaran biasa. */
+.hero-decoration {
+    width: 230px;
+    height: 150px;
+    border-radius: 48% 52% 65% 35%;
+    filter: blur(5px);
+    opacity: 0.13;
+    background: linear-gradient(
+        135deg,
+        #4f86d9,
+        #7fa8e8
+    );
+    animation: blobFloat 8s ease-in-out infinite;
+}
+
+.circle-one {
+    top: 20%;
+    left: 7%;
+    transform: rotate(25deg);
+}
+
+.circle-two {
+    width: 270px;
+    height: 170px;
+    right: 5%;
+    bottom: 15%;
+    background: linear-gradient(
+        135deg,
+        #5d91df,
+        #9ab9ed
+    );
+    transform: rotate(-30deg);
+    animation-delay: -3s;
+}
+
+@keyframes blueAurora {
+    0% {
+        transform: translate3d(-20px, -10px, 0) scale(0.95);
+    }
+    50% {
+        transform: translate3d(90px, 55px, 0) scale(1.12);
+    }
+    100% {
+        transform: translate3d(35px, 105px, 0) scale(1);
+    }
+}
+
+@keyframes blueAuroraReverse {
+    0% {
+        transform: translate3d(20px, 20px, 0) scale(1);
+    }
+    50% {
+        transform: translate3d(-85px, -60px, 0) scale(1.12);
+    }
+    100% {
+        transform: translate3d(-25px, -100px, 0) scale(0.96);
+    }
+}
+
+@keyframes blobFloat {
+    0%, 100% {
+        margin-top: 0;
+        border-radius: 48% 52% 65% 35%;
+    }
+    50% {
+        margin-top: -25px;
+        border-radius: 60% 40% 45% 55%;
+    }
+}
+
+
+/* =========================
+   ANIMATION
+========================= */
+
+@keyframes fadeUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes floating {
+    0%, 100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-25px);
+    }
+}
+
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media (max-width: 900px) {
+
+    .schedule {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .three {
+        flex-wrap: wrap;
+    }
+
+}
+
+@media (max-width: 650px) {
+
+    .navbar {
+        min-height: 100px;
+        height: auto;
+        padding: 15px 18px 17px;
+        flex-direction: column;
+        align-items: center;
+        gap: 12px;
+    }
+
+    .logo {
+        font-size: 19px;
+    }
+
+    .nav-menu {
+        width: 100%;
+        gap: 7px;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .nav-menu li {
+        flex: 0 0 auto;
+    }
+
+    .nav-menu a {
+        display: block;
+        padding: 7px 10px;
+        font-size: 11px;
+    }
+
+    .nav-menu a::after {
+        bottom: 1px;
+    }
+
+    .hero {
+        min-height: 90vh;
+    }
+
+    .hero h1 {
+        font-size: 58px;
+    }
+
+    .small-title {
+        font-size: 11px;
+        letter-spacing: 2px;
+    }
+
+    .section {
+        padding: 80px 18px;
+    }
+
+    .section-title h2 {
+        font-size: 30px;
+    }
+
+    .schedule {
+        grid-template-columns: 1fr;
+    }
+
+    .structure-level {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .person,
+    .three .person {
+        width: 100%;
+        max-width: 300px;
+    }
+
+    .piket-item {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 12px;
+    }
+
+    .day {
+        min-width: auto;
+    }
+
+}
+
+@media (max-width: 430px) {
+
+    .navbar {
+        padding: 14px 15px;
+    }
+
+    .logo {
+        font-size: 16px;
+    }
+
+    .nav-menu {
+        gap: 8px;
+    }
+
+    .nav-menu a {
+        font-size: 9px;
+    }
+
+    .hero h1 {
+        font-size: 48px;
+    }
+
+}
