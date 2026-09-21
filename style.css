@@ -1124,5 +1124,9 @@ footer small {
 
         /* Warna area kosong */
         background-color: #172033;
+
+         /* Matikan animasi di HP */
+        animation: none;
+        transform: none;
     }
 }
