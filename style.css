@@ -1111,3 +1111,18 @@ footer small {
         transform: scale(1.12);
     }
 }
+
+/* HP */
+@media (max-width: 650px) {
+    .hero-bg {
+        background-image: url("foto-kelas-hp.jpg");
+
+        /* Menampilkan seluruh foto */
+        background-size: contain;
+        background-position: center;
+        background-repeat: no-repeat;
+
+        /* Warna area kosong */
+        background-color: #172033;
+    }
+}
