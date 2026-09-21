@@ -1116,16 +1116,11 @@ footer small {
 @media (max-width: 650px) {
     .hero-bg {
         background-image: url("foto-kelas-hp.jpg");
-
-        /* Menampilkan seluruh foto */
-        background-size: contain;
+        background-size: cover;
         background-position: center;
         background-repeat: no-repeat;
 
-        /* Warna area kosong */
-        background-color: #172033;
-
-         /* Matikan animasi di HP */
+        /* Animasi zoom tetap dimatikan di HP */
         animation: none;
         transform: none;
     }
