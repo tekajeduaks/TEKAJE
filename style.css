@@ -1122,7 +1122,15 @@ footer small {
     }
 }
 
-/* Tombol lingkaran biru muda lembut */
+/* Container tombol di pojok kanan bawah */
+    .btn-container {
+      position: fixed;
+      bottom: 24px; /* Jarak dari bawah */
+      right: 24px;  /* Jarak dari kanan */
+      z-index: 9999;
+    }
+
+    /* Tombol lingkaran biru muda lembut */
 .play-btn {
   width: 50px;
   height: 50px;
