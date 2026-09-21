@@ -30,6 +30,46 @@
         </nav>
     </header>
 
+    !-- Tombol Melayang di Pojok Kanan Bawah -->
+  <div class="btn-container">
+    <button class="play-btn" id="playBtn" onclick="togglePlay()">
+      <!-- Ikon Awal: Play -->
+      <div class="icon-play" id="btnIcon"></div>
+    </button>
+  </div>
+
+  <!-- Audio Element -->
+  <audio id="laguKu" src="./musik.mp3" loop></audio>
+
+  <!-- JavaScript Langsung di HTML -->
+  <script>
+    var audio = document.getElementById("laguKu");
+    var playBtn = document.getElementById("playBtn");
+    var btnIcon = document.getElementById("btnIcon");
+
+    function togglePlay() {
+      if (audio.paused) {
+        audio.play().then(function() {
+          // Jalankan animasi putar pada lingkaran
+          playBtn.style.animationPlayState = "running";
+          
+          // Ubah ikon segitiga play jadi ikon pause
+          btnIcon.className = "icon-pause";
+          btnIcon.innerHTML = "<span></span><span></span>";
+        }).catch(function(err) {
+          alert("Gagal memutar musik! Pastikan file 'musik.mp3' ada di folder yang sama.");
+        });
+      } else {
+        audio.pause();
+        // Hentikan animasi putar
+        playBtn.style.animationPlayState = "paused";
+        
+        // Kembalikan ke ikon play
+        btnIcon.className = "icon-play";
+        btnIcon.innerHTML = "";
+      }
+    }
+  </script>
 
     <!-- HERO -->
     <section id="home" class="hero">
