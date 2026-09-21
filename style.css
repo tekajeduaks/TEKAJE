@@ -1075,3 +1075,39 @@ footer small {
     }
 
 }
+
+/* =========================
+   FOTO BACKGROUND HERO
+   ========================= */
+
+.hero-bg {
+    position: absolute;
+    inset: -10%;
+    background-image: url("foto-kelas.jpg");
+    background-size: cover;
+    background-position: center;
+    z-index: 0;
+    animation: heroZoom 10s ease-in-out infinite;
+    filter: brightness(0.65);
+}
+
+.hero-bg::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, rgba(10, 20, 40, 0.35), rgba(10, 20, 40, 0.55));
+}
+
+.hero-content {
+    position: relative;
+    z-index: 3;
+}
+
+@keyframes heroZoom {
+    0%, 100% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.12);
+    }
+}
