@@ -1119,9 +1119,5 @@ footer small {
         background-size: cover;
         background-position: center;
         background-repeat: no-repeat;
-
-        /* Animasi zoom tetap dimatikan di HP */
-        animation: none;
-        transform: none;
     }
 }
